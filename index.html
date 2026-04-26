@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>价格配置</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -731,124 +735,62 @@
   }
   .duel-na { color: #4a5490; font-size: 11px; font-weight: 400; }
 
+</style>
+</head>
+<body>
+<div class="card">
 
-  /* ── 原厂价格模块 ── */
-  .official-block {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 14px;
-    padding: 16px;
-    margin-top: 12px;
-  }
-  .official-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 4px;
-  }
-  .official-header-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    background: rgba(62,207,170,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    color: #3ecfaa;
-  }
-  .official-header-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: #c8d0f5;
-    flex: 1;
-  }
-  .official-note {
-    font-size: 10px;
-    color: #3a4570;
-    margin-bottom: 14px;
-    margin-left: 36px;
-  }
-  .official-note a { color: #3ecfaa; text-decoration: none; }
+  <!-- 站点标题 -->
+  <div style="margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.07)">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#3a6fff,#a06af0);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(91,140,255,0.35)">
+        <i class="fa-solid fa-dollar-sign" style="color:#fff;font-size:15px"></i>
+      </div>
+      <div>
+        <div style="font-size:18px;font-weight:800;color:#e0e4ff;letter-spacing:-0.01em;line-height:1.2">10dian-ai</div>
+        <div style="font-size:11px;color:#5a6599;margin-top:2px;letter-spacing:0.06em;text-transform:uppercase">价格对比站</div>
+      </div>
+    </div>
+  </div>
 
-  /* 计费切换 */
-  .official-billing-row {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 14px;
-    background: rgba(0,0,0,0.2);
-    border-radius: 10px;
-    padding: 3px;
-  }
-  .official-billing-tab {
-    flex: 1;
-    text-align: center;
-    padding: 7px 0;
-    font-size: 12px;
-    font-weight: 600;
-    color: #4a5490;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.18s;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-  }
-  .official-billing-tab i { font-size: 10px; }
-  .official-billing-tab.active { background: rgba(62,207,170,0.18); color: #3ecfaa; }
+  <div class="btn-row">
+    <!-- 计费方式 -->
+    <div class="dropdown-wrap" id="wrap1">
+      <button class="trigger" id="btn1">
+        <i class="fa-solid fa-coins" style="font-size:12px;color:#8891cc;flex-shrink:0"></i>
+        <span class="btn-label" id="lbl1">计费方式</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="menu" id="menu1">
+        <div class="menu-section">计费方式</div>
+        <div class="menu-item selected" data-billing="token">
+          <span class="item-name">输出/入计费</span>
+          <span class="check"><i class="fa-solid fa-check"></i></span>
+        </div>
+        <div class="menu-item" data-billing="count">
+          <span class="item-name">按次计费</span>
+          <span class="check"><i class="fa-solid fa-check"></i></span>
+        </div>
+      </div>
+    </div>
 
-  /* 厂商分组 */
-  .official-vendor {
-    margin-bottom: 14px;
-  }
-  .official-vendor:last-child { margin-bottom: 0; }
-  .official-vendor-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
-  .official-vendor-dot {
-    width: 8px; height: 8px;
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-  .official-vendor-name {
-    font-size: 11px;
-    font-weight: 700;
-    color: #8899bb;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .official-vendor-src {
-    font-size: 10px;
-    color: #3a4570;
-    margin-left: auto;
-  }
+    <!-- 台站 / 模型 -->
+    <div class="dropdown-wrap" id="wrap2">
+      <button class="trigger" id="btn2">
+        <i class="fa-solid fa-server" style="font-size:12px;color:#8891cc;flex-shrink:0"></i>
+        <span class="btn-label" id="lbl2">台站类型</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="menu" id="menu2">
 
-  /* 模型卡片 */
-  .official-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .official-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 10px;
-    padding: 10px 12px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .official-card-dot {
-    width: 8px; height: 8px;
-    border-radius: 2px;
-    flex-shrink: 0;
-    margin-top: 3px;
-  }
-  .official-card-body { flex: 1; min-width: 0; }
- 
+        <div class="menu-search-wrap">
+          <div class="menu-search-wrap-inner">
+            <i class="fa-solid fa-magnifying-glass menu-search-icon"></i>
+            <input class="menu-search" id="modelSearch" type="text" placeholder="搜索模型或厂商…" autocomplete="off" autocorrect="off" spellcheck="false">
+          </div>
+        </div>
+
+
+        <div class="menu-section">普通台 · Anthropic</div>
+        <div class="menu-item selected" data-type="normal" data-model="claude-opus-4-6" data-brand="anthropic">
+          <span class="m-icon" style="display:flex;align-items:center;justify-content:
