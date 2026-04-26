@@ -3,37 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>10dian-ai 价格对比站</title>
-
-<!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-<!-- Font Awesome 6.7.2 — 主 CDN（jsDelivr，国内更稳定） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" crossorigin="anonymous">
-<!-- 备用 CDN（cdnjs），主 CDN 失败时自动切换 -->
-<script>
-(function(){
-  var t=setTimeout(function(){
-    // 检测 FA 是否加载成功（用 fa-solid 的 font-family 判断）
-    var el=document.createElement('i');
-    el.className='fa-solid fa-check';
-    el.style.cssText='position:absolute;visibility:hidden';
-    document.body.appendChild(el);
-    var style=window.getComputedStyle(el,'::before');
-    var loaded = style && style.fontFamily && style.fontFamily.indexOf('Font Awesome')!==-1;
-    document.body.removeChild(el);
-    if(!loaded){
-      var link=document.createElement('link');
-      link.rel='stylesheet';
-      link.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css';
-      document.head.appendChild(link);
-    }
-  },1500);
-})();
-</script>
+<title>价格配置</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -827,4 +798,57 @@
     gap: 5px;
   }
   .official-billing-tab i { font-size: 10px; }
-  .official-billi
+  .official-billing-tab.active { background: rgba(62,207,170,0.18); color: #3ecfaa; }
+
+  /* 厂商分组 */
+  .official-vendor {
+    margin-bottom: 14px;
+  }
+  .official-vendor:last-child { margin-bottom: 0; }
+  .official-vendor-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .official-vendor-dot {
+    width: 8px; height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .official-vendor-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: #8899bb;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .official-vendor-src {
+    font-size: 10px;
+    color: #3a4570;
+    margin-left: auto;
+  }
+
+  /* 模型卡片 */
+  .official-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .official-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .official-card-dot {
+    width: 8px; height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .official-card-body { flex: 1; min-width: 0; }
+ 
